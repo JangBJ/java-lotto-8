@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LottoNumber {
@@ -10,5 +11,7 @@ public class LottoNumber {
         this.lottoNumber = lottoNumber;
     }
 
-
+    public List<Integer> getLottoNumber() {
+        return lottoNumber;
+    }
 }
