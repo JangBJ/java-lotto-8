@@ -34,6 +34,6 @@ public class LottoResult {
     public String profitPercent(int paid) {
         double ratio = (double) totalPrizeMoney() / paid;
 
-        return String.format("%.2f%%", ratio * 100);
+        return String.format("%.1f%%", ratio * 100);
     }
 }
