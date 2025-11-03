@@ -10,7 +10,7 @@ public class Money {
         this.value = value;
     }
 
-    public int MoneyToPriceCount(){
-        return value/PRICE;
+    public int moneyToPriceCount(){
+        return this.value/PRICE;
     }
 }
