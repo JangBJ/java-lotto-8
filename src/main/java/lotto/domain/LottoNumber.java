@@ -1,7 +1,7 @@
 package lotto.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LottoNumber {
 
@@ -13,5 +13,12 @@ public class LottoNumber {
 
     public List<Integer> getLottoNumber() {
         return lottoNumber;
+    }
+
+    @Override
+    public String toString() {
+        return lottoNumber.stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining(", ", "[", "]"));
     }
 }
