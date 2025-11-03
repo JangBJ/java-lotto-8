@@ -3,7 +3,9 @@ package lotto.domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,7 +21,7 @@ class LottoMachineTest {
 
     @BeforeEach
     void createRandomNumbers() {
-        lottoNumber = lottoMachine.createRandomLottoNumbers();
+        lottoNumber = lottoMachine.createRandomLotto();
     }
 
     @Test
@@ -40,4 +42,14 @@ class LottoMachineTest {
                 .stream()
                 .allMatch(number -> number >=1 && number <=45));
     }
+
+    @Test
+    void 로또_번호는_여러개_생성_가능(){
+        int count = 10;
+
+        List<LottoNumber> lottoNumberList = lottoMachine.createRandomLottoList(count);
+
+        assertEquals(count, lottoNumberList.size());
+    }
+
 }
