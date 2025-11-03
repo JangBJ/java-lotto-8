@@ -21,7 +21,7 @@ public class LottoGame {
     }
 
     public void start() {
-        int money = Integer.parseInt(inputView.getPrice().trim());
+        int money = inputView.getMoney();
         Money purchase = new Money(money);
         int count = purchase.moneyToPriceCount();
 
@@ -29,14 +29,11 @@ public class LottoGame {
         outputView.printLottoList(tickets);
         System.out.println();
 
-        String winningLine = inputView.getWinningLottoNumber();
-        String bonusLine = inputView.getBonusLottoNumber();
+        List<Integer> winningNumberList = inputView.getWinningLottoNumber();
 
-        WinningLotto winning = new WinningLotto(
-                InputParser.winningNumberParser(winningLine),
-                InputParser.bonusNumberParser(bonusLine)
-        );
+        int bonusNumber = inputView.getBonusLottoNumber(winningNumberList);
 
+        WinningLotto winning = new WinningLotto(winningNumberList, bonusNumber);
         LottoJudge judge = new LottoJudge();
         LottoResult result = judge.winningJudge(tickets, winning);
 
